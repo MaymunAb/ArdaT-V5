@@ -1,7 +1,5 @@
-getgenv().Games = {
-  [920587237] = "https://raw.githubusercontent.com/1201for/V.G-Hub/main/Games/Adopt-Me"    
-}
+if game.GameId == 6441847031 then
 
-getgenv().Unknown = {
-    
-}
+else
+warn("Unsupported Game")
+end
