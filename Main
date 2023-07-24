@@ -1,1 +1,1 @@
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/MaymunAb/ArdaT-V5/main/GameList"))()
