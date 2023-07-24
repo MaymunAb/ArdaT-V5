@@ -1,1 +1,7 @@
+getgenv().Games = {
+  [920587237] = "https://raw.githubusercontent.com/1201for/V.G-Hub/main/Games/Adopt-Me"    
+}
 
+getgenv().Unknown = {
+    
+}
