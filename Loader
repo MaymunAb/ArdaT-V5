@@ -1,0 +1,116 @@
+local LoaderGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local a = Instance.new("TextLabel")
+local b = Instance.new("TextLabel")
+local Background = Instance.new("Frame")
+local Bar = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local UICorner_2 = Instance.new("UICorner")
+local c = Instance.new("TextLabel")
+local UICorner_3 = Instance.new("UICorner")
+
+LoaderGui.Name = "LoaderGui"
+LoaderGui.Parent = game.CoreGui
+LoaderGui.Enabled = true
+
+Frame.Parent = LoaderGui
+Frame.BackgroundColor3 = Color3.fromRGB(75, 75, 75)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.347690105, 0, 0.29838711, 0)
+Frame.Size = UDim2.new(0, 430, 0, 200)
+Frame.Active = true
+Frame.Draggable = true
+
+a.Name = "a"
+a.Parent = Frame
+a.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+a.BackgroundTransparency = 1.000
+a.BorderColor3 = Color3.fromRGB(0, 0, 0)
+a.BorderSizePixel = 0
+a.Size = UDim2.new(0, 430, 0, 50)
+a.Font = Enum.Font.SourceSans
+a.Text = "ArdaT"
+a.TextColor3 = Color3.fromRGB(255, 255, 255)
+a.TextScaled = true
+a.TextSize = 14.000
+a.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+a.TextWrapped = true
+
+b.Name = "b"
+b.Parent = Frame
+b.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+b.BackgroundTransparency = 1.000
+b.BorderColor3 = Color3.fromRGB(0, 0, 0)
+b.BorderSizePixel = 0
+b.Position = UDim2.new(-0.00232586521, 0, 0.25, 0)
+b.Size = UDim2.new(0, 430, 0, 13)
+b.Font = Enum.Font.SourceSans
+b.Text = "Game Loader"
+b.TextColor3 = Color3.fromRGB(255, 255, 255)
+b.TextScaled = true
+b.TextSize = 14.000
+b.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+b.TextWrapped = true
+
+Background.Name = "Background"
+Background.Parent = Frame
+Background.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Background.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Background.BorderSizePixel = 0
+Background.Position = UDim2.new(0.147690028, 0, 0.618387163, 0)
+Background.Size = UDim2.new(0, 300, 0, 25)
+
+Bar.Name = "Bar"
+Bar.Parent = Background
+Bar.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+Bar.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Bar.BorderSizePixel = 0
+Bar.Size = UDim2.new(0, 0, 0, 25)
+
+UICorner.Parent = Bar
+
+UICorner_2.Parent = Background
+
+c.Name = "c"
+c.Parent = Frame
+c.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+c.BackgroundTransparency = 1.000
+c.BorderColor3 = Color3.fromRGB(0, 0, 0)
+c.BorderSizePixel = 0
+c.Position = UDim2.new(-2.83884447e-07, 0, 0.745000005, 0)
+c.Size = UDim2.new(0, 430, 0, 13)
+c.Font = Enum.Font.SourceSans
+c.Text = ""
+c.TextColor3 = Color3.fromRGB(255, 255, 255)
+c.TextScaled = true
+c.TextSize = 14.000
+c.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+c.TextWrapped = true
+
+UICorner_3.Parent = Frame
+
+local function d()
+	Bar.Size = UDim2.new(0,0,0,0)
+	wait(0.4)
+	Bar.Size = UDim2.new(0, 50,0, 25)
+	wait(0.2)
+	Bar.Size = UDim2.new(0, 70,0, 25)
+	wait(0.1)
+	Bar.Size = UDim2.new(0, 90,0, 25)
+	wait(0.1)
+	Bar.Size = UDim2.new(0, 110,0, 25)
+	wait(0.3)
+	Bar.Size = UDim2.new(0, 140,0, 25)
+	wait(0.4)
+	Bar.Size = UDim2.new(0, 160,0, 25)
+	wait(2)
+	Bar.Size = UDim2.new(0, 240,0, 25)
+	wait(1)
+	Bar.Size = UDim2.new(0, 300,0, 25)
+	wait(0.9)
+end
+
+wait(2.1)
+
+d()
