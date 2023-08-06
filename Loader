@@ -109,6 +109,8 @@ local function d()
 	wait(1)
 	Bar.Size = UDim2.new(0, 300,0, 25)
 	wait(0.9)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/MaymunAb/ArdaT-V5/main/KeySystem"))()
+LoaderGui:Destroy()
 end
 
 wait(2.1)
