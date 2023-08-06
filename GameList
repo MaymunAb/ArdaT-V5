@@ -1,5 +1,3 @@
-if game.GameId == 4991214437 then
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/MaymunAb/ArdaT-V5/main/Town"))()
-else
-warn("Unsupported Game")
-end
+getgenv().Games = {
+    [4991214437] = "https://raw.githubusercontent.com/1201for/V.G-Hub/main/Games/Adopt-Me"    
+}
