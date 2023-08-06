@@ -1,3 +1,4 @@
+print("Town:Load")
 local Town = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local a = Instance.new("TextLabel")
@@ -13,17 +14,106 @@ local UICorner_4 = Instance.new("UICorner")
 local Wall = Instance.new("Frame")
 local Close = Instance.new("TextButton")
 local UICorner_5 = Instance.new("UICorner")
+local Settings = Instance.new("ImageButton")
+local Theme = Instance.new("ImageButton")
 local Info = Instance.new("Frame")
 local UICorner_6 = Instance.new("UICorner")
 local aa = Instance.new("TextLabel")
 local bc = Instance.new("TextLabel")
 local Wall1 = Instance.new("Frame")
+local sda = Instance.new("TextLabel")
+local asd = Instance.new("TextLabel")
+local asda = Instance.new("TextLabel")
+local Color = Instance.new("Frame")
+local UICorner_7 = Instance.new("UICorner")
+local Green = Instance.new("TextButton")
+local UICorner_8 = Instance.new("UICorner")
+local Red = Instance.new("TextButton")
+local UICorner_9 = Instance.new("UICorner")
+local Blue = Instance.new("TextButton")
+local UICorner_10 = Instance.new("UICorner")
+local Purple = Instance.new("TextButton")
+local UICorner_11 = Instance.new("UICorner")
+local Magenta = Instance.new("TextButton")
+local UICorner_12 = Instance.new("UICorner")
+local Brown = Instance.new("TextButton")
+local UICorner_13 = Instance.new("UICorner")
+local Silver = Instance.new("TextButton")
+local UICorner_14 = Instance.new("UICorner")
+local Black = Instance.new("TextButton")
+local UICorner_15 = Instance.new("UICorner")
+local Turquose = Instance.new("TextButton")
+local UICorner_16 = Instance.new("UICorner")
+local Settings_2 = Instance.new("Frame")
+local assdas = Instance.new("TextLabel")
+local UICorner_17 = Instance.new("UICorner")
 
-local Debounce = false
+Black.BackgroundColor = BrickColor.new("Black metallic")
+Blue.BackgroundColor = BrickColor.new("Tr. Blue")
+Brown.BackgroundColor = BrickColor.new("Dark nougat")
+Green.BackgroundColor = BrickColor.new("Mint")
+Magenta.BackgroundColor = BrickColor.new("Tr. Medi. reddish violet")
+Purple.BackgroundColor = BrickColor.new("Sand violet")
+Red.BackgroundColor = BrickColor.new("Tr. Red")
+Silver.BackgroundColor = BrickColor.new("White")
+Turquose.BackgroundColor = BrickColor.new("Tr. Flu. Blue")
+
+print("Set Ui Strokes")
+local UiStroke = Instance.new("UIStroke", Frame)
+local UiStroke1 = Instance.new("UIStroke", Settings_2)
+local UiStroke2 = Instance.new("UIStroke", Color)
+local UiStroke3 = Instance.new("UIStroke", Info)
+local UiStroke4 = Instance.new("UIStroke", Black)
+local UiStroke5 = Instance.new("UIStroke", Blue)
+local UiStroke6 = Instance.new("UIStroke", Brown)
+local UiStroke7 = Instance.new("UIStroke", Green)
+local UiStroke8 = Instance.new("UIStroke", Magenta)
+local UiStroke9 = Instance.new("UIStroke", Purple)
+local UiStroke10 = Instance.new("UIStroke", Red)
+local UiStroke11 = Instance.new("UIStroke", Silver)
+local UiStroke12 = Instance.new("UIStroke", Turquose)
+
+UiStroke.Color = BrickColor.new("White")
+UiStroke1.Color = BrickColor.new("White")
+UiStroke2.Color = BrickColor.new("White")
+UiStroke3.Color = BrickColor.new("White")
+UiStroke4.Color = BrickColor.new("White")
+UiStroke5.Color = BrickColor.new("White")
+UiStroke6.Color = BrickColor.new("White")
+UiStroke7.Color = BrickColor.new("White")
+UiStroke8.Color = BrickColor.new("White")
+UiStroke9.Color = BrickColor.new("White")
+UiStroke10.Color = BrickColor.new("White")
+UiStroke11.Color = BrickColor.new("White")
+UiStroke12.Color = BrickColor.new("White")
 
 Town.Name = "Town"
 Town.Parent = game.CoreGui
 Town.Enabled = true
+
+local function SetColor(brickcolor)
+	UiStroke.Color = BrickColor.new(brickcolor)
+	UiStroke1.Color = BrickColor.new(brickcolor)
+	UiStroke2.Color = BrickColor.new(brickcolor)
+	UiStroke3.Color = BrickColor.new(brickcolor)
+	Wall.BackgroundColor = BrickColor.new(brickcolor)
+	Wall1.BackgroundColor = BrickColor.new(brickcolor)
+end
+
+local DebounceForSettings = false
+local DebounceForTheme = false
+local DebounceForInfo = false
+
+Frame.Active = true
+
+Settings_2.Visible = false
+Color.Visible = false
+Info.Visible = false
+
+Settings_2.Draggable = true
+Color.Draggable = true
+Info.Draggable = true
+Frame.Draggable = true
 
 Frame.Parent = Town
 Frame.BackgroundColor3 = Color3.fromRGB(75, 75, 75)
@@ -31,10 +121,6 @@ Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame.BorderSizePixel = 0
 Frame.Position = UDim2.new(0.31817916, 0, 0.29838711, 0)
 Frame.Size = UDim2.new(0, 430, 0, 200)
-Frame.Active = true
-Frame.Draggable = true
-
-Info.Visible = false
 
 a.Name = "a"
 a.Parent = Frame
@@ -195,12 +281,12 @@ InfoArdaT.Position = UDim2.new(0.939534903, 0, 0.875, 0)
 InfoArdaT.Size = UDim2.new(0, 25, 0, 25)
 InfoArdaT.Image = "http://www.roblox.com/asset/?id=6026568210"
 InfoArdaT.MouseButton1Down:Connect(function()
-	if not Debounce then
+	if not DebounceForInfo then
 		Info.Visible = true
-		Debounce = true
+		DebounceForInfo = true
 	else
 		Info.Visible = false
-		Debounce = false
+		DebounceForInfo = false
 	end
 end)
 
@@ -243,11 +329,49 @@ Close.TextColor3 = Color3.fromRGB(255, 255, 255)
 Close.TextScaled = true
 Close.TextSize = 45.000
 Close.TextWrapped = true
-Close.MouseButton1Click:Connect(function()
+Close.MouseButton1Down:Connect(function()
 	Town:Destroy()
 end)
 
 UICorner_5.Parent = Close
+
+Settings.Name = "Settings"
+Settings.Parent = Frame
+Settings.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Settings.BackgroundTransparency = 1.000
+Settings.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Settings.BorderSizePixel = 0
+Settings.Position = UDim2.new(0.867441833, 0, 0.875, 0)
+Settings.Size = UDim2.new(0, 25, 0, 25)
+Settings.Image = "http://www.roblox.com/asset/?id=6031280882"
+Settings.MouseButton1Down:Connect(function()
+	if not DebounceForSettings then
+		Settings_2.Visible = true
+		DebounceForSettings = true
+	else
+		Settings_2.Visible = false
+		DebounceForSettings = false
+	end
+end)
+
+Theme.Name = "Theme"
+Theme.Parent = Frame
+Theme.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Theme.BackgroundTransparency = 1.000
+Theme.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Theme.BorderSizePixel = 0
+Theme.Position = UDim2.new(0.793023229, 0, 0.870000005, 0)
+Theme.Size = UDim2.new(0, 25, 0, 25)
+Theme.Image = "http://www.roblox.com/asset/?id=6031625148"
+Theme.MouseButton1Down:Connect(function()
+	if not DebounceForTheme then
+		Color.Visible = true
+		DebounceForTheme = true
+	else
+		Color.Visible = false
+		DebounceForTheme = false
+	end
+end)
 
 Info.Name = "Info"
 Info.Parent = Town
@@ -268,7 +392,7 @@ aa.BorderSizePixel = 0
 aa.Position = UDim2.new(0.0666666701, 0, 0.873999953, 0)
 aa.Size = UDim2.new(0, 130, 0, 25)
 aa.Font = Enum.Font.SourceSans
-aa.Text = "ArdaT Version:0.5A"
+aa.Text = "ArdaT Version:0.543B"
 aa.TextColor3 = Color3.fromRGB(255, 255, 255)
 aa.TextScaled = true
 aa.TextSize = 14.000
@@ -282,9 +406,9 @@ bc.BackgroundTransparency = 1.000
 bc.BorderColor3 = Color3.fromRGB(0, 0, 0)
 bc.BorderSizePixel = 0
 bc.Position = UDim2.new(0.0666666701, 0, 0.00399993919, 0)
-bc.Size = UDim2.new(0, 130, 0, 148)
+bc.Size = UDim2.new(0, 130, 0, 31)
 bc.Font = Enum.Font.SourceSans
-bc.Text = "Warning: ArdaT is under construction and there may be errors."
+bc.Text = "Update Log:"
 bc.TextColor3 = Color3.fromRGB(255, 255, 255)
 bc.TextScaled = true
 bc.TextSize = 14.000
@@ -297,4 +421,241 @@ Wall1.BackgroundColor3 = Color3.fromRGB(239, 239, 239)
 Wall1.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Wall1.BorderSizePixel = 0
 Wall1.Position = UDim2.new(-0.00042521159, 0, 0.778387129, 0)
-Wall1.Size = UDim2.new(0, 150, 0, 7)
+Wall1.Size = UDim2.new(0, 150, 0, 5)
+
+sda.Name = "sda"
+sda.Parent = Info
+sda.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+sda.BackgroundTransparency = 1.000
+sda.BorderColor3 = Color3.fromRGB(0, 0, 0)
+sda.BorderSizePixel = 0
+sda.Position = UDim2.new(0, 0, 0.218999937, 0)
+sda.Size = UDim2.new(0, 149, 0, 31)
+sda.Font = Enum.Font.SourceSans
+sda.Text = "[1]:Added Color Wheel"
+sda.TextColor3 = Color3.fromRGB(255, 255, 255)
+sda.TextScaled = true
+sda.TextSize = 14.000
+sda.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+sda.TextWrapped = true
+
+asd.Name = "asd"
+asd.Parent = Info
+asd.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+asd.BackgroundTransparency = 1.000
+asd.BorderColor3 = Color3.fromRGB(0, 0, 0)
+asd.BorderSizePixel = 0
+asd.Position = UDim2.new(-0.00666666683, 0, 0.373999953, 0)
+asd.Size = UDim2.new(0, 149, 0, 30)
+asd.Font = Enum.Font.SourceSans
+asd.Text = "[2]:Bug Fix"
+asd.TextColor3 = Color3.fromRGB(255, 255, 255)
+asd.TextScaled = true
+asd.TextSize = 14.000
+asd.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+asd.TextWrapped = true
+
+asda.Name = "asda"
+asda.Parent = Info
+asda.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+asda.BackgroundTransparency = 1.000
+asda.BorderColor3 = Color3.fromRGB(0, 0, 0)
+asda.BorderSizePixel = 0
+asda.Position = UDim2.new(0, 0, 0.523999929, 0)
+asda.Size = UDim2.new(0, 149, 0, 55)
+asda.Font = Enum.Font.SourceSans
+asda.Text = "[3]:New Supported Game:Chaos"
+asda.TextColor3 = Color3.fromRGB(255, 255, 255)
+asda.TextScaled = true
+asda.TextSize = 14.000
+asda.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+asda.TextWrapped = true
+
+Color.Name = "Color"
+Color.Parent = Town
+Color.BackgroundColor3 = Color3.fromRGB(75, 75, 75)
+Color.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Color.BorderSizePixel = 0
+Color.Position = UDim2.new(0.084902063, 0, 0.258467764, 0)
+Color.Size = UDim2.new(0, 230, 0, 230)
+
+UICorner_7.Parent = Color
+
+Green.Name = "Green"
+Green.Parent = Color
+Green.BackgroundColor3 = Color3.fromRGB(34, 255, 0)
+Green.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Green.BorderSizePixel = 0
+Green.Position = UDim2.new(0.0739130452, 0, 0.0521739125, 0)
+Green.Size = UDim2.new(0, 50, 0, 50)
+Green.Font = Enum.Font.SourceSans
+Green.Text = ""
+Green.TextColor3 = Color3.fromRGB(0, 0, 0)
+Green.TextSize = 14.000
+Green.MouseButton1Down:Connect(function()
+	SetColor("Mint")
+end)
+
+UICorner_8.Parent = Green
+
+Red.Name = "Red"
+Red.Parent = Color
+Red.BackgroundColor3 = Color3.fromRGB(255, 0, 4)
+Red.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Red.BorderSizePixel = 0
+Red.Position = UDim2.new(0.0739130452, 0, 0.391304344, 0)
+Red.Size = UDim2.new(0, 50, 0, 50)
+Red.Font = Enum.Font.SourceSans
+Red.Text = ""
+Red.TextColor3 = Color3.fromRGB(0, 0, 0)
+Red.TextSize = 14.000
+Red.MouseButton1Down:Connect(function()
+	SetColor("Tr. Red")
+end)
+
+UICorner_9.Parent = Red
+
+Blue.Name = "Blue"
+Blue.Parent = Color
+Blue.BackgroundColor3 = Color3.fromRGB(0, 55, 255)
+Blue.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Blue.BorderSizePixel = 0
+Blue.Position = UDim2.new(0.0739130452, 0, 0.730434775, 0)
+Blue.Size = UDim2.new(0, 50, 0, 50)
+Blue.Font = Enum.Font.SourceSans
+Blue.Text = ""
+Blue.TextColor3 = Color3.fromRGB(0, 0, 0)
+Blue.TextSize = 14.000
+Blue.MouseButton1Down:Connect(function()
+	SetColor("Tr. Blue")
+end)
+
+UICorner_10.Parent = Blue
+
+Purple.Name = "Purple"
+Purple.Parent = Color
+Purple.BackgroundColor3 = Color3.fromRGB(131, 8, 255)
+Purple.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Purple.BorderSizePixel = 0
+Purple.Position = UDim2.new(0.391304344, 0, 0.730434775, 0)
+Purple.Size = UDim2.new(0, 50, 0, 50)
+Purple.Font = Enum.Font.SourceSans
+Purple.Text = ""
+Purple.TextColor3 = Color3.fromRGB(0, 0, 0)
+Purple.TextSize = 14.000
+Purple.MouseButton1Down:Connect(function()
+	SetColor("Sand violet")
+end)
+
+UICorner_11.Parent = Purple
+
+Magenta.Name = "Magenta"
+Magenta.Parent = Color
+Magenta.BackgroundColor3 = Color3.fromRGB(255, 0, 234)
+Magenta.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Magenta.BorderSizePixel = 0
+Magenta.Position = UDim2.new(0.391304344, 0, 0.391304344, 0)
+Magenta.Size = UDim2.new(0, 50, 0, 50)
+Magenta.Font = Enum.Font.SourceSans
+Magenta.Text = ""
+Magenta.TextColor3 = Color3.fromRGB(0, 0, 0)
+Magenta.TextSize = 14.000
+Magenta.MouseButton1Down:Connect(function()
+	SetColor("Tr. Medi. reddish violet")
+end)
+
+UICorner_12.Parent = Magenta
+
+Brown.Name = "Brown"
+Brown.Parent = Color
+Brown.BackgroundColor3 = Color3.fromRGB(184, 110, 7)
+Brown.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Brown.BorderSizePixel = 0
+Brown.Position = UDim2.new(0.391304344, 0, 0.0565217398, 0)
+Brown.Size = UDim2.new(0, 50, 0, 50)
+Brown.Font = Enum.Font.SourceSans
+Brown.Text = ""
+Brown.TextColor3 = Color3.fromRGB(0, 0, 0)
+Brown.TextSize = 14.000
+Brown.MouseButton1Down:Connect(function()
+	SetColor("Dark nougat")
+end)
+
+UICorner_13.Parent = Brown
+
+Silver.Name = "Silver"
+Silver.Parent = Color
+Silver.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Silver.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Silver.BorderSizePixel = 0
+Silver.Position = UDim2.new(0.70869565, 0, 0.734782636, 0)
+Silver.Size = UDim2.new(0, 50, 0, 50)
+Silver.Font = Enum.Font.SourceSans
+Silver.Text = ""
+Silver.TextColor3 = Color3.fromRGB(0, 0, 0)
+Silver.TextSize = 14.000
+Silver.MouseButton1Down:Connect(function()
+	SetColor("White")
+end)
+UICorner_14.Parent = Silver
+
+Black.Name = "Black"
+Black.Parent = Color
+Black.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Black.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Black.BorderSizePixel = 0
+Black.Position = UDim2.new(0.70869565, 0, 0.395652175, 0)
+Black.Size = UDim2.new(0, 50, 0, 50)
+Black.Font = Enum.Font.SourceSans
+Black.Text = ""
+Black.TextColor3 = Color3.fromRGB(0, 0, 0)
+Black.TextSize = 14.000
+Black.MouseButton1Down:Connect(function()
+	SetColor("Black metallic")
+end)
+
+UICorner_15.Parent = Black
+
+Turquose.Name = "Turquose"
+Turquose.Parent = Color
+Turquose.BackgroundColor3 = Color3.fromRGB(0, 255, 247)
+Turquose.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Turquose.BorderSizePixel = 0
+Turquose.Position = UDim2.new(0.70869565, 0, 0.0565217398, 0)
+Turquose.Size = UDim2.new(0, 50, 0, 50)
+Turquose.Font = Enum.Font.SourceSans
+Turquose.Text = ""
+Turquose.TextColor3 = Color3.fromRGB(0, 0, 0)
+Turquose.TextSize = 14.000
+Turquose.MouseButton1Down:Connect(function()
+	SetColor("Tr. Flu. Blue")
+end)
+
+UICorner_16.Parent = Turquose
+
+Settings_2.Name = "Settings"
+Settings_2.Parent = Town
+Settings_2.BackgroundColor3 = Color3.fromRGB(75, 75, 75)
+Settings_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Settings_2.BorderSizePixel = 0
+Settings_2.Position = UDim2.new(0.373266309, 0, 0.762500048, 0)
+Settings_2.Size = UDim2.new(0, 300, 0, 85)
+
+assdas.Name = "assdas"
+assdas.Parent = Settings_2
+assdas.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+assdas.BackgroundTransparency = 1.000
+assdas.BorderColor3 = Color3.fromRGB(0, 0, 0)
+assdas.BorderSizePixel = 0
+assdas.Position = UDim2.new(0.0199999996, 0, 0, 0)
+assdas.Size = UDim2.new(0, 288, 0, 85)
+assdas.Font = Enum.Font.SourceSans
+assdas.Text = "Coming Soon"
+assdas.TextColor3 = Color3.fromRGB(255, 255, 255)
+assdas.TextScaled = true
+assdas.TextSize = 14.000
+assdas.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+assdas.TextWrapped = true
+
+UICorner_17.Parent = Settings_2
+print("Town:Load Finish")
