@@ -106,6 +106,8 @@ Check.MouseButton1Down:Connect(function()
 		if TextBox.Text == key then
 			Check.Text = "Correct"
 			wait(2)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/MaymunAb/ArdaT-V5/main/GameList"))()
+wait(0.2)
 			KeySystem:Destroy()
 		else
 		Check.Text = "Wrong!"
