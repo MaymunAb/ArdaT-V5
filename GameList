@@ -1,3 +1,5 @@
-getgenv().Games = {
-    [4991214437] = "https://raw.githubusercontent.com/MaymunAb/ArdaT-V5/main/Town"    
-}
+if game.PlaceId == 4991214437 then
+
+else
+warn("Unsupported Game")
+end
