@@ -1,0 +1,246 @@
+local Arsenal = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local a = Instance.new("TextLabel")
+local Silent = Instance.new("TextButton")
+local UICorner = Instance.new("UICorner")
+local Esp = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local InfoArdaT = Instance.new("ImageButton")
+local b = Instance.new("TextLabel")
+local UICorner_3 = Instance.new("UICorner")
+local Wall = Instance.new("Frame")
+local Close = Instance.new("TextButton")
+local UICorner_4 = Instance.new("UICorner")
+local Info = Instance.new("Frame")
+local UICorner_5 = Instance.new("UICorner")
+local aa = Instance.new("TextLabel")
+local bc = Instance.new("TextLabel")
+local Wall1 = Instance.new("Frame")
+local Debounce = false
+
+Info.Visible = false
+
+Arsenal.Name = "Arsenal"
+Arsenal.Parent = game.CoreGui
+Arsenal.Enabled = true
+
+Frame.Parent = Arsenal
+Frame.BackgroundColor3 = Color3.fromRGB(75, 75, 75)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.31817916, 0, 0.29838711, 0)
+Frame.Size = UDim2.new(0, 430, 0, 200)
+Frame.Active = true
+Frame.Draggable = true
+
+a.Name = "a"
+a.Parent = Frame
+a.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+a.BackgroundTransparency = 1.000
+a.BorderColor3 = Color3.fromRGB(0, 0, 0)
+a.BorderSizePixel = 0
+a.Size = UDim2.new(0, 117, 0, 50)
+a.Font = Enum.Font.SourceSans
+a.Text = "ArdaT"
+a.TextColor3 = Color3.fromRGB(255, 255, 255)
+a.TextScaled = true
+a.TextSize = 14.000
+a.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+a.TextWrapped = true
+
+Silent.Name = "Silent"
+Silent.Parent = Frame
+Silent.BackgroundColor3 = Color3.fromRGB(213, 213, 213)
+Silent.BackgroundTransparency = 0.880
+Silent.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Silent.BorderSizePixel = 0
+Silent.Position = UDim2.new(0.479069769, 0, 0.455000013, 0)
+Silent.Size = UDim2.new(0, 112, 0, 70)
+Silent.Font = Enum.Font.SourceSans
+Silent.Text = "SilentAim"
+Silent.TextColor3 = Color3.fromRGB(255, 255, 255)
+Silent.TextScaled = true
+Silent.TextSize = 25.000
+Silent.TextWrapped = true
+Silent.MouseButton1Down:Connect(function()
+	local CurrentCamera = workspace.CurrentCamera
+	local Players = game.GetService(game, "Players")
+	local LocalPlayer = Players.LocalPlayer
+	local Mouse = LocalPlayer:GetMouse()
+	function ClosestPlayer()
+		local MaxDist, Closest = math.huge
+		for I,V in pairs(Players.GetPlayers(Players)) do
+			if V == LocalPlayer then continue end
+			if V.Team == LocalPlayer then continue end
+			if not V.Character then continue end
+			local Head = V.Character.FindFirstChild(V.Character, "Head")
+			if not Head then continue end
+			local Pos, Vis = CurrentCamera.WorldToScreenPoint(CurrentCamera, Head.Position)
+			if not Vis then continue end
+			local MousePos, TheirPos = Vector2.new(Mouse.X, Mouse.Y), Vector2.new(Pos.X, Pos.Y)
+			local Dist = (TheirPos - MousePos).Magnitude
+			if Dist < MaxDist then
+				MaxDist = Dist
+				Closest = V
+				print("working")
+			end
+		end
+		return Closest
+	end
+	local MT = getrawmetatable(game)
+	local OldNC = MT.__namecall
+	local OldIDX = MT.__index
+	setreadonly(MT, false)
+	MT.__namecall = newcclosure(function(self, ...)
+		local Args, Method = {...}, getnamecallmethod()
+		if Method == "FindPartOnRayWithIgnoreList" and not checkcaller() then
+			local CP = ClosestPlayer()
+			if CP and CP.Character and CP.Character.FindFirstChild(CP.Character, "Head") then
+				Args[1] = Ray.new(CurrentCamera.CFrame.Position, (CP.Character.Head.Position - CurrentCamera.CFrame.Position).Unit * 1000)
+				return OldNC(self, unpack(Args))
+			end
+		end
+		return OldNC(self, ...)
+	end)
+	MT.__index = newcclosure(function(self, K)
+		if K == "Clips" then
+			return workspace.Map
+		end
+		return OldIDX(self, K)
+	end)
+	setreadonly(MT, true)
+end)
+
+UICorner.Parent = Silent
+
+Esp.Name = "Esp"
+Esp.Parent = Frame
+Esp.BackgroundColor3 = Color3.fromRGB(213, 213, 213)
+Esp.BackgroundTransparency = 0.880
+Esp.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Esp.BorderSizePixel = 0
+Esp.Position = UDim2.new(0.262302428, 0, 0.455000013, 0)
+Esp.Size = UDim2.new(0, 70, 0, 70)
+Esp.Font = Enum.Font.SourceSans
+Esp.Text = "Esp"
+Esp.TextColor3 = Color3.fromRGB(255, 255, 255)
+Esp.TextSize = 45.000
+Esp.MouseButton1Down:Connect(function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/ic3w0lf22/Unnamed-ESP/master/UnnamedESP.lua'))()
+end)
+
+UICorner_2.Parent = Esp
+
+InfoArdaT.Name = "InfoArdaT"
+InfoArdaT.Parent = Frame
+InfoArdaT.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+InfoArdaT.BackgroundTransparency = 1.000
+InfoArdaT.BorderColor3 = Color3.fromRGB(0, 0, 0)
+InfoArdaT.BorderSizePixel = 0
+InfoArdaT.Position = UDim2.new(0.939534903, 0, 0.875, 0)
+InfoArdaT.Size = UDim2.new(0, 25, 0, 25)
+InfoArdaT.Image = "http://www.roblox.com/asset/?id=6026568210"
+InfoArdaT.MouseButton1Down:Connect(function()
+	if not Debounce then
+		Info.Visible = true
+		Debounce = true
+	else
+		Info.Visible = false
+		Debounce = false
+	end
+end)
+
+b.Name = "b"
+b.Parent = Frame
+b.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+b.BackgroundTransparency = 1.000
+b.BorderColor3 = Color3.fromRGB(0, 0, 0)
+b.BorderSizePixel = 0
+b.Position = UDim2.new(0.258139521, 0, 0.0350000001, 0)
+b.Size = UDim2.new(0, 203, 0, 36)
+b.Font = Enum.Font.SourceSans
+b.Text = "Detected Game:Arsenal"
+b.TextColor3 = Color3.fromRGB(255, 255, 255)
+b.TextScaled = true
+b.TextSize = 14.000
+b.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+b.TextWrapped = true
+
+UICorner_3.Parent = Frame
+
+Wall.Name = "Wall"
+Wall.Parent = Frame
+Wall.BackgroundColor3 = Color3.fromRGB(239, 239, 239)
+Wall.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Wall.BorderSizePixel = 0
+Wall.Position = UDim2.new(-0.000425542792, 0, 0.248387143, 0)
+Wall.Size = UDim2.new(0, 430, 0, 5)
+
+Close.Name = "Close"
+Close.Parent = Frame
+Close.BackgroundColor3 = Color3.fromRGB(154, 0, 0)
+Close.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Close.BorderSizePixel = 0
+Close.Position = UDim2.new(0.941372156, 0, 0, 0)
+Close.Size = UDim2.new(0, 25, 0, 25)
+Close.Font = Enum.Font.SourceSans
+Close.Text = "X"
+Close.TextColor3 = Color3.fromRGB(255, 255, 255)
+Close.TextScaled = true
+Close.TextSize = 45.000
+Close.TextWrapped = true
+Close.MouseButton1Click:Connect(function()
+	Arsenal:Destroy()
+end)
+
+UICorner_4.Parent = Close
+
+Info.Name = "Info"
+Info.Parent = Arsenal
+Info.BackgroundColor3 = Color3.fromRGB(75, 75, 75)
+Info.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Info.BorderSizePixel = 0
+Info.Position = UDim2.new(0.707161784, 0, 0.296774209, 0)
+Info.Size = UDim2.new(0, 150, 0, 200)
+
+UICorner_5.Parent = Info
+
+aa.Name = "aa"
+aa.Parent = Info
+aa.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+aa.BackgroundTransparency = 1.000
+aa.BorderColor3 = Color3.fromRGB(0, 0, 0)
+aa.BorderSizePixel = 0
+aa.Position = UDim2.new(0.0666666701, 0, 0.873999953, 0)
+aa.Size = UDim2.new(0, 130, 0, 25)
+aa.Font = Enum.Font.SourceSans
+aa.Text = "ArdaT Version:0.5A"
+aa.TextColor3 = Color3.fromRGB(255, 255, 255)
+aa.TextScaled = true
+aa.TextSize = 14.000
+aa.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+aa.TextWrapped = true
+
+bc.Name = "bc"
+bc.Parent = Info
+bc.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+bc.BackgroundTransparency = 1.000
+bc.BorderColor3 = Color3.fromRGB(0, 0, 0)
+bc.BorderSizePixel = 0
+bc.Position = UDim2.new(0.0666666701, 0, 0.00399993919, 0)
+bc.Size = UDim2.new(0, 130, 0, 148)
+bc.Font = Enum.Font.SourceSans
+bc.Text = "Warning: ArdaT is under construction and there may be errors."
+bc.TextColor3 = Color3.fromRGB(255, 255, 255)
+bc.TextScaled = true
+bc.TextSize = 14.000
+bc.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+bc.TextWrapped = true
+
+Wall1.Name = "Wall1"
+Wall1.Parent = Info
+Wall1.BackgroundColor3 = Color3.fromRGB(239, 239, 239)
+Wall1.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Wall1.BorderSizePixel = 0
+Wall1.Position = UDim2.new(-0.00042521159, 0, 0.778387129, 0)
+Wall1.Size = UDim2.new(0, 150, 0, 7)
