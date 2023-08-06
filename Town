@@ -1,1 +1,300 @@
+local Town = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local a = Instance.new("TextLabel")
+local infiniteYield = Instance.new("TextButton")
+local UICorner = Instance.new("UICorner")
+local Aimbot = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local Esp = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+local InfoArdaT = Instance.new("ImageButton")
+local b = Instance.new("TextLabel")
+local UICorner_4 = Instance.new("UICorner")
+local Wall = Instance.new("Frame")
+local Close = Instance.new("TextButton")
+local UICorner_5 = Instance.new("UICorner")
+local Info = Instance.new("Frame")
+local UICorner_6 = Instance.new("UICorner")
+local aa = Instance.new("TextLabel")
+local bc = Instance.new("TextLabel")
+local Wall1 = Instance.new("Frame")
 
+local Debounce = false
+
+Town.Name = "Town"
+Town.Parent = game.CoreGui
+Town.Enabled = true
+
+Frame.Parent = Town
+Frame.BackgroundColor3 = Color3.fromRGB(75, 75, 75)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.31817916, 0, 0.29838711, 0)
+Frame.Size = UDim2.new(0, 430, 0, 200)
+Frame.Active = true
+Frame.Draggable = true
+
+Info.Visible = false
+
+a.Name = "a"
+a.Parent = Frame
+a.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+a.BackgroundTransparency = 1.000
+a.BorderColor3 = Color3.fromRGB(0, 0, 0)
+a.BorderSizePixel = 0
+a.Size = UDim2.new(0, 117, 0, 50)
+a.Font = Enum.Font.SourceSans
+a.Text = "ArdaT"
+a.TextColor3 = Color3.fromRGB(255, 255, 255)
+a.TextScaled = true
+a.TextSize = 14.000
+a.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+a.TextWrapped = true
+
+infiniteYield.Name = "infiniteYield"
+infiniteYield.Parent = Frame
+infiniteYield.BackgroundColor3 = Color3.fromRGB(213, 213, 213)
+infiniteYield.BackgroundTransparency = 0.880
+infiniteYield.BorderColor3 = Color3.fromRGB(0, 0, 0)
+infiniteYield.BorderSizePixel = 0
+infiniteYield.Position = UDim2.new(0.358348757, 0, 0.425000012, 0)
+infiniteYield.Size = UDim2.new(0, 114, 0, 70)
+infiniteYield.Font = Enum.Font.SourceSans
+infiniteYield.Text = "infiniteYield"
+infiniteYield.TextColor3 = Color3.fromRGB(255, 255, 255)
+infiniteYield.TextScaled = true
+infiniteYield.TextSize = 45.000
+infiniteYield.TextWrapped = true
+infiniteYield.MouseButton1Down:Connect(function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+UICorner.Parent = infiniteYield
+
+Aimbot.Name = "Aimbot"
+Aimbot.Parent = Frame
+Aimbot.BackgroundColor3 = Color3.fromRGB(213, 213, 213)
+Aimbot.BackgroundTransparency = 0.880
+Aimbot.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Aimbot.BorderSizePixel = 0
+Aimbot.Position = UDim2.new(0.688372076, 0, 0.425000012, 0)
+Aimbot.Size = UDim2.new(0, 70, 0, 70)
+Aimbot.Font = Enum.Font.SourceSans
+Aimbot.Text = "Aimbot"
+Aimbot.TextColor3 = Color3.fromRGB(255, 255, 255)
+Aimbot.TextScaled = true
+Aimbot.TextSize = 25.000
+Aimbot.TextWrapped = true
+Aimbot.MouseButton1Down:Connect(function()
+	local Camera = workspace.CurrentCamera
+	local Players = game:GetService("Players")
+	local RunService = game:GetService("RunService")
+	local UserInputService = game:GetService("UserInputService")
+	local TweenService = game:GetService("TweenService")
+	local LocalPlayer = Players.LocalPlayer
+	local Holding = false
+
+	_G.AimbotEnabled = true
+	_G.TeamCheck = false -- If set to true then the script would only lock your aim at enemy team members.
+	_G.AimPart = "Head" -- Where the aimbot script would lock at.
+	_G.Sensitivity = 0 -- How many seconds it takes for the aimbot script to officially lock onto the target's aimpart.
+
+	local function GetClosestPlayer()
+		local MaximumDistance = math.huge
+		local Target = nil
+
+		coroutine.wrap(function()
+			wait(20); MaximumDistance = math.huge -- Reset the MaximumDistance so that the Aimbot doesn't remember it as a very small variable and stop capturing players...
+		end)()
+
+		for _, v in next, Players:GetPlayers() do
+			if v.Name ~= LocalPlayer.Name then
+				if _G.TeamCheck == true then
+					if v.Team ~= LocalPlayer.Team then
+						if v.Character ~= nil then
+							if v.Character:FindFirstChild("HumanoidRootPart") ~= nil then
+								if v.Character:FindFirstChild("Humanoid") ~= nil and v.Character:FindFirstChild("Humanoid").Health ~= 0 then
+									local ScreenPoint = Camera:WorldToScreenPoint(v.Character:WaitForChild("HumanoidRootPart", math.huge).Position)
+									local VectorDistance = (Vector2.new(UserInputService:GetMouseLocation().X, UserInputService:GetMouseLocation().Y) - Vector2.new(ScreenPoint.X, ScreenPoint.Y)).Magnitude
+
+									if VectorDistance < MaximumDistance then
+										Target = v
+										MaximumDistance = VectorDistance
+									end
+								end
+							end
+						end
+					end
+				else
+					if v.Character ~= nil then
+						if v.Character:FindFirstChild("HumanoidRootPart") ~= nil then
+							if v.Character:FindFirstChild("Humanoid") ~= nil and v.Character:FindFirstChild("Humanoid").Health ~= 0 then
+								local ScreenPoint = Camera:WorldToScreenPoint(v.Character:WaitForChild("HumanoidRootPart", math.huge).Position)
+								local VectorDistance = (Vector2.new(UserInputService:GetMouseLocation().X, UserInputService:GetMouseLocation().Y) - Vector2.new(ScreenPoint.X, ScreenPoint.Y)).Magnitude
+
+								if VectorDistance < MaximumDistance then
+									Target = v
+									MaximumDistance = VectorDistance
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+
+		return Target
+	end
+
+	UserInputService.InputBegan:Connect(function(Input)
+		if Input.UserInputType == Enum.UserInputType.MouseButton2 then
+			Holding = true
+		end
+	end)
+
+	UserInputService.InputEnded:Connect(function(Input)
+		if Input.UserInputType == Enum.UserInputType.MouseButton2 then
+			Holding = false
+		end
+	end)
+
+	RunService.RenderStepped:Connect(function()
+		if Holding == true and _G.AimbotEnabled == true then
+			TweenService:Create(Camera, TweenInfo.new(_G.Sensitivity, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {CFrame = CFrame.new(Camera.CFrame.Position, GetClosestPlayer().Character[_G.AimPart].Position)}):Play()
+		end
+	end)
+end)
+
+UICorner_2.Parent = Aimbot
+
+Esp.Name = "Esp"
+Esp.Parent = Frame
+Esp.BackgroundColor3 = Color3.fromRGB(213, 213, 213)
+Esp.BackgroundTransparency = 0.880
+Esp.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Esp.BorderSizePixel = 0
+Esp.Position = UDim2.new(0.153000087, 0, 0.425000012, 0)
+Esp.Size = UDim2.new(0, 70, 0, 70)
+Esp.Font = Enum.Font.SourceSans
+Esp.Text = "Esp"
+Esp.TextColor3 = Color3.fromRGB(255, 255, 255)
+Esp.TextSize = 45.000
+Esp.MouseButton1Down:Connect(function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/ic3w0lf22/Unnamed-ESP/master/UnnamedESP.lua'))()
+end)
+
+UICorner_3.Parent = Esp
+
+InfoArdaT.Name = "InfoArdaT"
+InfoArdaT.Parent = Frame
+InfoArdaT.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+InfoArdaT.BackgroundTransparency = 1.000
+InfoArdaT.BorderColor3 = Color3.fromRGB(0, 0, 0)
+InfoArdaT.BorderSizePixel = 0
+InfoArdaT.Position = UDim2.new(0.939534903, 0, 0.875, 0)
+InfoArdaT.Size = UDim2.new(0, 25, 0, 25)
+InfoArdaT.Image = "http://www.roblox.com/asset/?id=6026568210"
+InfoArdaT.MouseButton1Down:Connect(function()
+	if not Debounce then
+		Info.Visible = true
+		Debounce = true
+	else
+		Info.Visible = false
+		Debounce = false
+	end
+end)
+
+b.Name = "b"
+b.Parent = Frame
+b.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+b.BackgroundTransparency = 1.000
+b.BorderColor3 = Color3.fromRGB(0, 0, 0)
+b.BorderSizePixel = 0
+b.Position = UDim2.new(0.258139521, 0, 0.0350000001, 0)
+b.Size = UDim2.new(0, 203, 0, 36)
+b.Font = Enum.Font.SourceSans
+b.Text = "Detected Game:Town"
+b.TextColor3 = Color3.fromRGB(255, 255, 255)
+b.TextScaled = true
+b.TextSize = 14.000
+b.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+b.TextWrapped = true
+
+UICorner_4.Parent = Frame
+
+Wall.Name = "Wall"
+Wall.Parent = Frame
+Wall.BackgroundColor3 = Color3.fromRGB(239, 239, 239)
+Wall.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Wall.BorderSizePixel = 0
+Wall.Position = UDim2.new(-0.000425542792, 0, 0.248387143, 0)
+Wall.Size = UDim2.new(0, 430, 0, 5)
+
+Close.Name = "Close"
+Close.Parent = Frame
+Close.BackgroundColor3 = Color3.fromRGB(154, 0, 0)
+Close.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Close.BorderSizePixel = 0
+Close.Position = UDim2.new(0.941372156, 0, 0, 0)
+Close.Size = UDim2.new(0, 25, 0, 25)
+Close.Font = Enum.Font.SourceSans
+Close.Text = "X"
+Close.TextColor3 = Color3.fromRGB(255, 255, 255)
+Close.TextScaled = true
+Close.TextSize = 45.000
+Close.TextWrapped = true
+Close.MouseButton1Click:Connect(function()
+	Town:Destroy()
+end)
+
+UICorner_5.Parent = Close
+
+Info.Name = "Info"
+Info.Parent = Town
+Info.BackgroundColor3 = Color3.fromRGB(75, 75, 75)
+Info.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Info.BorderSizePixel = 0
+Info.Position = UDim2.new(0.707161784, 0, 0.296774209, 0)
+Info.Size = UDim2.new(0, 150, 0, 200)
+
+UICorner_6.Parent = Info
+
+aa.Name = "aa"
+aa.Parent = Info
+aa.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+aa.BackgroundTransparency = 1.000
+aa.BorderColor3 = Color3.fromRGB(0, 0, 0)
+aa.BorderSizePixel = 0
+aa.Position = UDim2.new(0.0666666701, 0, 0.873999953, 0)
+aa.Size = UDim2.new(0, 130, 0, 25)
+aa.Font = Enum.Font.SourceSans
+aa.Text = "ArdaT Version:0.5A"
+aa.TextColor3 = Color3.fromRGB(255, 255, 255)
+aa.TextScaled = true
+aa.TextSize = 14.000
+aa.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+aa.TextWrapped = true
+
+bc.Name = "bc"
+bc.Parent = Info
+bc.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+bc.BackgroundTransparency = 1.000
+bc.BorderColor3 = Color3.fromRGB(0, 0, 0)
+bc.BorderSizePixel = 0
+bc.Position = UDim2.new(0.0666666701, 0, 0.00399993919, 0)
+bc.Size = UDim2.new(0, 130, 0, 148)
+bc.Font = Enum.Font.SourceSans
+bc.Text = "Warning: ArdaT is under construction and there may be errors."
+bc.TextColor3 = Color3.fromRGB(255, 255, 255)
+bc.TextScaled = true
+bc.TextSize = 14.000
+bc.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+bc.TextWrapped = true
+
+Wall1.Name = "Wall1"
+Wall1.Parent = Info
+Wall1.BackgroundColor3 = Color3.fromRGB(239, 239, 239)
+Wall1.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Wall1.BorderSizePixel = 0
+Wall1.Position = UDim2.new(-0.00042521159, 0, 0.778387129, 0)
+Wall1.Size = UDim2.new(0, 150, 0, 7)
