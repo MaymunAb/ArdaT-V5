@@ -1,5 +1,5 @@
 if game.PlaceId == 4991214437 then
-loadstring(game:HttpGet("https://raw.githubusercontent.com/MaymunAb/ArdaT-V5/main/GameList"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/MaymunAb/ArdaT-V5/main/Town"))()
 else
 warn("Unsupported Game")
 end
