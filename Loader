@@ -115,4 +115,13 @@ end
 
 wait(2.1)
 
+StarterGui:SetCore(
+    "SendNotification",
+    {
+        Title = "ArdaT",
+        Text = "ArdaT Has Been Updated.Enjoy!",
+        Duration = 10
+    }
+)
+
 d()
