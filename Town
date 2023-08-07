@@ -59,6 +59,7 @@ Silver.BackgroundColor = BrickColor.new("White")
 Turquose.BackgroundColor = BrickColor.new("Tr. Flu. Blue")
 
 print("Set Ui Strokes")
+
 local UiStroke = Instance.new("UIStroke", Frame)
 local UiStroke1 = Instance.new("UIStroke", Settings_2)
 local UiStroke2 = Instance.new("UIStroke", Color)
@@ -73,29 +74,29 @@ local UiStroke10 = Instance.new("UIStroke", Red)
 local UiStroke11 = Instance.new("UIStroke", Silver)
 local UiStroke12 = Instance.new("UIStroke", Turquose)
 
-UiStroke.Color = BrickColor.new("White")
-UiStroke1.Color = BrickColor.new("White")
-UiStroke2.Color = BrickColor.new("White")
-UiStroke3.Color = BrickColor.new("White")
-UiStroke4.Color = BrickColor.new("White")
-UiStroke5.Color = BrickColor.new("White")
-UiStroke6.Color = BrickColor.new("White")
-UiStroke7.Color = BrickColor.new("White")
-UiStroke8.Color = BrickColor.new("White")
-UiStroke9.Color = BrickColor.new("White")
-UiStroke10.Color = BrickColor.new("White")
-UiStroke11.Color = BrickColor.new("White")
-UiStroke12.Color = BrickColor.new("White")
+UiStroke.Color = Color3.new(243,243,243)
+UiStroke1.Color = Color3.new(243,243,243)
+UiStroke2.Color = Color3.new(243,243,243)
+UiStroke3.Color = Color3.new(243,243,243)
+UiStroke4.Color = Color3.new(243,243,243)
+UiStroke5.Color = Color3.new(243,243,243)
+UiStroke6.Color = Color3.new(243,243,243)
+UiStroke7.Color = Color3.new(243,243,243)
+UiStroke8.Color = Color3.new(243,243,243)
+UiStroke9.Color = Color3.new(243,243,243)
+UiStroke10.Color = Color3.new(243,243,243)
+UiStroke11.Color = Color3.new(243,243,243)
+UiStroke12.Color = Color3.new(243,243,243)
 
 Town.Name = "Town"
 Town.Parent = game.CoreGui
 Town.Enabled = true
 
-local function SetColor(brickcolor)
-	UiStroke.Color = BrickColor.new(brickcolor)
-	UiStroke1.Color = BrickColor.new(brickcolor)
-	UiStroke2.Color = BrickColor.new(brickcolor)
-	UiStroke3.Color = BrickColor.new(brickcolor)
+local function SetColor(brickcolor, color)
+	UiStroke.Color = Color3.new(color)
+	UiStroke1.Color = Color3.new(color)
+	UiStroke2.Color = Color3.new(color)
+	UiStroke3.Color = Color3.new(color)
 	Wall.BackgroundColor = BrickColor.new(brickcolor)
 	Wall1.BackgroundColor = BrickColor.new(brickcolor)
 end
@@ -493,7 +494,7 @@ Green.Text = ""
 Green.TextColor3 = Color3.fromRGB(0, 0, 0)
 Green.TextSize = 14.000
 Green.MouseButton1Down:Connect(function()
-	SetColor("Mint")
+	SetColor("Mint", "194, 218, 184")
 end)
 
 UICorner_8.Parent = Green
@@ -510,7 +511,7 @@ Red.Text = ""
 Red.TextColor3 = Color3.fromRGB(0, 0, 0)
 Red.TextSize = 14.000
 Red.MouseButton1Down:Connect(function()
-	SetColor("Tr. Red")
+	SetColor("Tr. Red", "205, 84, 75")
 end)
 
 UICorner_9.Parent = Red
@@ -527,7 +528,7 @@ Blue.Text = ""
 Blue.TextColor3 = Color3.fromRGB(0, 0, 0)
 Blue.TextSize = 14.000
 Blue.MouseButton1Down:Connect(function()
-	SetColor("Tr. Blue")
+	SetColor("Tr. Blue", "123, 182, 232")
 end)
 
 UICorner_10.Parent = Blue
@@ -544,7 +545,7 @@ Purple.Text = ""
 Purple.TextColor3 = Color3.fromRGB(0, 0, 0)
 Purple.TextSize = 14.000
 Purple.MouseButton1Down:Connect(function()
-	SetColor("Sand violet")
+	SetColor("Sand violet", "135, 124, 144")
 end)
 
 UICorner_11.Parent = Purple
@@ -561,7 +562,7 @@ Magenta.Text = ""
 Magenta.TextColor3 = Color3.fromRGB(0, 0, 0)
 Magenta.TextSize = 14.000
 Magenta.MouseButton1Down:Connect(function()
-	SetColor("Tr. Medi. reddish violet")
+	SetColor("Tr. Medi. reddish violet", "229, 173, 200")
 end)
 
 UICorner_12.Parent = Magenta
@@ -578,7 +579,7 @@ Brown.Text = ""
 Brown.TextColor3 = Color3.fromRGB(0, 0, 0)
 Brown.TextSize = 14.000
 Brown.MouseButton1Down:Connect(function()
-	SetColor("Dark nougat")
+	SetColor("Dark nougat", "174, 122, 89")
 end)
 
 UICorner_13.Parent = Brown
@@ -595,7 +596,7 @@ Silver.Text = ""
 Silver.TextColor3 = Color3.fromRGB(0, 0, 0)
 Silver.TextSize = 14.000
 Silver.MouseButton1Down:Connect(function()
-	SetColor("White")
+	SetColor("White", "242, 243, 243")
 end)
 UICorner_14.Parent = Silver
 
@@ -611,7 +612,7 @@ Black.Text = ""
 Black.TextColor3 = Color3.fromRGB(0, 0, 0)
 Black.TextSize = 14.000
 Black.MouseButton1Down:Connect(function()
-	SetColor("Black metallic")
+	SetColor("Black metallic", "22, 29, 50")
 end)
 
 UICorner_15.Parent = Black
@@ -628,7 +629,7 @@ Turquose.Text = ""
 Turquose.TextColor3 = Color3.fromRGB(0, 0, 0)
 Turquose.TextSize = 14.000
 Turquose.MouseButton1Down:Connect(function()
-	SetColor("Tr. Flu. Blue")
+	SetColor("Tr. Flu. Blue", "207, 226, 247")
 end)
 
 UICorner_16.Parent = Turquose
