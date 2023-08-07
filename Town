@@ -60,19 +60,19 @@ Turquose.BackgroundColor = BrickColor.new("Tr. Flu. Blue")
 
 print("Set Ui Strokes")
 
-local UiStroke = Instance.new("UIStroke", Frame)
-local UiStroke1 = Instance.new("UIStroke", Settings_2)
-local UiStroke2 = Instance.new("UIStroke", Color)
-local UiStroke3 = Instance.new("UIStroke", Info)
-local UiStroke4 = Instance.new("UIStroke", Black)
-local UiStroke5 = Instance.new("UIStroke", Blue)
-local UiStroke6 = Instance.new("UIStroke", Brown)
-local UiStroke7 = Instance.new("UIStroke", Green)
-local UiStroke8 = Instance.new("UIStroke", Magenta)
-local UiStroke9 = Instance.new("UIStroke", Purple)
-local UiStroke10 = Instance.new("UIStroke", Red)
-local UiStroke11 = Instance.new("UIStroke", Silver)
-local UiStroke12 = Instance.new("UIStroke", Turquose)
+local UiStroke = Instance.new("UIStroke")
+local UiStroke1 = Instance.new("UIStroke")
+local UiStroke2 = Instance.new("UIStroke")
+local UiStroke3 = Instance.new("UIStroke")
+local UiStroke4 = Instance.new("UIStroke")
+local UiStroke5 = Instance.new("UIStroke")
+local UiStroke6 = Instance.new("UIStroke")
+local UiStroke7 = Instance.new("UIStroke")
+local UiStroke8 = Instance.new("UIStroke")
+local UiStroke9 = Instance.new("UIStroke")
+local UiStroke10 = Instance.new("UIStroke")
+local UiStroke11 = Instance.new("UIStroke")
+local UiStroke12 = Instance.new("UIStroke")
 
 UiStroke.Color = Color3.new(243,243,243)
 UiStroke1.Color = Color3.new(243,243,243)
@@ -87,6 +87,49 @@ UiStroke9.Color = Color3.new(243,243,243)
 UiStroke10.Color = Color3.new(243,243,243)
 UiStroke11.Color = Color3.new(243,243,243)
 UiStroke12.Color = Color3.new(243,243,243)
+
+UiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+UiStroke1.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+UiStroke2.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+UiStroke3.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+UiStroke4.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+UiStroke5.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+UiStroke6.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+UiStroke7.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+UiStroke8.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+UiStroke9.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+UiStroke10.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+UiStroke11.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+UiStroke12.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+
+UiStroke.Thickness = 5
+UiStroke1.Thickness = 5
+UiStroke2.Thickness = 5
+UiStroke3.Thickness = 5
+UiStroke4.Thickness = 5
+UiStroke5.Thickness = 5
+UiStroke6.Thickness = 5
+UiStroke7.Thickness = 5
+UiStroke8.Thickness = 5
+UiStroke9.Thickness = 5
+UiStroke10.Thickness = 5
+UiStroke11.Thickness = 5
+UiStroke12.Thickness = 5
+
+UiStroke.Parent = Frame
+UiStroke1.Parent = Color
+UiStroke2.Parent = Info
+UiStroke3.Parent = Settings_2
+
+UiStroke4.Parent =  Black
+UiStroke5.Parent =  Blue
+UiStroke6.Parent =  Brown
+UiStroke7.Parent =  Green
+UiStroke8.Parent =  Magenta
+UiStroke9.Parent = Purple 
+UiStroke10.Parent = Red 
+UiStroke11.Parent = Silver 
+UiStroke12.Parent = Turquose 
 
 Town.Name = "Town"
 Town.Parent = game.CoreGui
